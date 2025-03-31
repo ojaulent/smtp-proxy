@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  smtp-proxy:
+    build: .
+    container_name: smtp-proxy
+    restart: unless-stopped
+    ports:
+      - "25:25"
+    environment:
+      SMTP_LOCAL_SERVER_PORT: 25
+      SMTP_RELAY_HOST: "smtp.exemple.com"
+      SMTP_RELAY_PORT: 465
+      SMTP_RELAY_USER: "utilisateur"
+      #SMTP_RELAY_PASS: "motdepasse"
+      
